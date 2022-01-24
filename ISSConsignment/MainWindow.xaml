@@ -1,0 +1,134 @@
+﻿<Window x:Class="ISSConsignment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ISSConsignment"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="450" Width="800"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignLightBackground }"
+        FontFamily="{DynamicResource MaterialDesignFont }">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Menu -->
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Actions">
+                <MenuItem Header="Consignment Sale Table"></MenuItem>
+                <MenuItem Header="Customers Table"></MenuItem>
+                <MenuItem Header="Employees Table"></MenuItem>
+                <MenuItem Header="Invoices Table"></MenuItem>
+                <MenuItem Header="Invoice Details Table"></MenuItem>
+                <MenuItem Header="Sellers Table"></MenuItem>
+                <MenuItem Header="Sale Item Type Table"></MenuItem>
+                <MenuItem Header="Seller Payment Table"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Report">
+                <MenuItem Header="Report Menu"></MenuItem>
+                <MenuItem Header="Old Invoices"></MenuItem>
+                <MenuItem Header="Close Registers"></MenuItem>
+                <MenuItem Header="Sale Items"></MenuItem>
+                <MenuItem Header="Seller Sold"></MenuItem>
+                <MenuItem Header="Print Seller Checks"></MenuItem>
+                <MenuItem Header="Seller Payments"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!-- Sale Information -->
+        <Border Grid.Row="1" BorderThickness="0,3,0,3" BorderBrush="DarkGray">
+            <StackPanel Margin="10">
+                <TextBlock Text="Consignment Sale Information:" FontWeight="Bold" />
+                <TextBlock Text="Sale Title:" />
+                <TextBox Text="spring sall - 128" />
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock Text="Sales Tax:" />
+                        <TextBox Text="7%" />
+                    </StackPanel>
+                    <StackPanel Margin="12 0 0 0">
+                        <TextBlock Text="Minimum $ Description:" />
+                        <TextBox Text="$20.00" />
+                    </StackPanel>
+                    <StackPanel Margin="12 0 0 0">
+                        <TextBlock Text="Discount %:" />
+                        <TextBox Text="0%" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Current Sale Data -->
+        <Grid Margin="4" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <TextBlock Text="Current Sale Data:" FontWeight="Bold" />
+                <Button Margin="4 0 0 0" Content="Expand" />
+            </StackPanel>
+
+            <!-- Hierarchy Control and DataGrid -->
+            <Border Margin="0 8 0 0" Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock MinHeight="40" Grid.Row="0" Background="LightGray" Text="[Some complicated custom hierarchical control]" />
+                    <DataGrid Grid.Row="1" BorderThickness="0" Name="DataGrid1">
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Bottom panel -->
+        <StackPanel Margin="4,4,4,4"  Orientation="Horizontal" Grid.Row="3">
+            <Button>
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Printer"></materialDesign:PackIcon>
+                        <TextBlock Text="Print Current Sale Data" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Margin="5,0,0,0">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                        <TextBlock Text="Refresh" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="Total Count Items Sold:" />
+                <TextBox Text="2" />
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="Total Sales This Sale With Tax:" />
+                <TextBox Text="$6.42" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
